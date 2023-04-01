@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p class="timer"></p>
+
+    <script>
+      let h1 = h2 = m1 = m2 = s1 = s2 = 0;
+      timer = document.querySelector(".timer");
+      timer.textContent = `${h1}${h2}:${m1}${m2}:${s1}${s2}`;
+      setInterval(() => {
+        if (m2 === 9 && m1 === 5 && s2 === 9 && s1 === 5 && h2 === 9) {
+          h2++;
+          h2 = m1 = m2 = s1 = s2 = 0;
+        } else {
+          if (m2 === 9 && m1 === 5 && s2 === 9 && s1 === 5) {
+            h2++;
+            m1 = m2 = s1 = s2 = 0;
+          } else {
+            if (s2 === 9 && s1 === 5) {
+              m2++;
+              s2 = s1 = 0;
+            } else {
+              if (s2 === 9) {
+                s1++;
+                s2 = 0;
+              }else{
+                s2++;
+              }
+            }
+          }
+        }
+        timer.textContent = `${h1}${h2}:${m1}${m2}:${s1}${s2}`;
+      },1000);
+    </script>
+  </body>
+</html>
